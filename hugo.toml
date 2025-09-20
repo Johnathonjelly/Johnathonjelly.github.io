@@ -1,0 +1,103 @@
+baseURL = "https://username.github.io"
+languageCode = "en-us"
+title = "The Peripatetic"
+theme = "PaperMod"
+relativeURLs = true
+
+[params]
+env = "production"
+title = "Your Name"
+description = "A wandering mind's journey through learning, wisdom, and life's finer pursuits"
+keywords = ["Professional Development", "Technology", "Career Growth", "Learning", "Projects", "Portfolio"]
+author = "Your Name"
+images = ["images/avatar.jpg"]
+DateFormat = "January 2, 2006"
+defaultTheme = "auto"
+disableThemeToggle = false
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowWordCount = true
+ShowRssButtonInSectionTermList = true
+UseHugoToc = true
+disableSpecial1stPost = false
+disableScrollToTop = false
+comments = false
+hidemeta = false
+hideSummary = false
+showtoc = false
+tocopen = false
+assets.disableFingerprinting = true
+
+[params.homeInfoParams]
+Title = "Χαῖρε! Welcome, Wanderer 🏛️"
+Content = "Welcome to The Peripatetic - a contemplative journey through rigorous learning, classical wisdom, and the finer appreciation of life. Join me as I walk the paths of knowledge, philosophy, and discovery."
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/Johnathonjelly"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/johnathon-southworth-5a4b28132/"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:southworthjohnathon@gmail.com"
+
+[params.editPost]
+URL = "https://github.com/username/username.github.io/tree/main/content"
+Text = "Suggest Changes"
+appendFilePath = true
+
+[params.fuseOpts]
+isCaseSensitive = false
+shouldSort = true
+location = 0
+distance = 1000
+threshold = 0.4
+minMatchCharLength = 0
+keys = ["title", "permalink", "summary", "content"]
+
+[menu]
+[[menu.main]]
+identifier = "about"
+name = "👤 Philosophia"
+url = "/about/"
+title = "About"
+weight = 10
+
+[[menu.main]]
+identifier = "blog"
+name = "📚 Dialogos"
+url = "/posts/"
+title = "Blog"
+weight = 20
+
+[[menu.main]]
+identifier = "contact"
+name = "✉️ Symposion"
+url = "/contact/"
+title = "Contact"
+weight = 30
+
+[markup]
+[markup.highlight]
+noClasses = false
+codeFences = true
+guessSyntax = true
+lineNos = true
+style = "github"
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+category = "categories"
+tag = "tags"

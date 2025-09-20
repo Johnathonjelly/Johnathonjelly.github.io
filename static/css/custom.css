@@ -1,0 +1,342 @@
+/* The Peripatetic - Custom Classical Styling */
+
+/* Classical typography - Inspired by Roman inscriptions */
+.post-content h1, .post-content h2, .post-content h3, 
+.post-header h1, .profile .profile_inner h1 {
+    font-family: 'Trajan Pro', 'Optima', 'Georgia', 'Times New Roman', serif;
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(139, 115, 85, 0.1);
+    letter-spacing: 0.5px;
+}
+
+/* Large title styling - Stone-carved monumental */
+.post-header h1, .profile .profile_inner h1 {
+    background: linear-gradient(135deg, #2c3e50, #8b7355);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 
+        2px 2px 0px rgba(139, 115, 85, 0.3),
+        4px 4px 8px rgba(139, 115, 85, 0.2);
+    position: relative;
+}
+
+/* Classical drop cap for first paragraph */
+.post-content p:first-of-type::first-letter {
+    float: left;
+    font-size: 4em;
+    line-height: 0.8;
+    margin: 0.1em 0.1em 0 0;
+    font-family: 'Trajan Pro', 'Georgia', serif;
+    color: #8b7355;
+    text-shadow: 2px 2px 4px rgba(139, 115, 85, 0.3);
+}
+
+/* Powerful classical dividers - Ancient decorative */
+.post-content hr {
+    border: none;
+    height: 6px;
+    background: 
+        linear-gradient(to right, transparent, #8b7355, #d4a574, #8b7355, transparent),
+        linear-gradient(to right, transparent 20%, #8b7355 25%, #8b7355 75%, transparent 80%);
+    background-size: 100% 3px, 100% 6px;
+    background-position: 0 0, 0 1.5px;
+    background-repeat: no-repeat;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.post-content hr::before {
+    content: '◆';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #8b7355;
+    font-size: 1.2em;
+    background: #f8f5ed;
+    padding: 0 1rem;
+    text-shadow: 1px 1px 2px rgba(139, 115, 85, 0.3);
+}
+
+/* Classical quote styling */
+.post-content blockquote {
+    border-left: 4px solid #8b7355;
+    background: linear-gradient(135deg, #f8f6f0 0%, #f5f3ed 100%);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
+}
+
+/* Subtle category badges */
+.post-meta .category {
+    background: linear-gradient(135deg, #8b7355, #a0896b);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 0.5rem;
+}
+
+/* Enhanced code blocks with subtle borders */
+.post-content pre {
+    border: 1px solid #e1ddd4;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Elegant list styling */
+.post-content ul li::marker {
+    content: "• ";
+    color: #8b7355;
+    font-weight: bold;
+}
+
+.post-content ol li::marker {
+    color: #8b7355;
+    font-weight: bold;
+}
+
+/* Subtle hover effects for links */
+.post-content a {
+    color: #8b7355;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.post-content a:hover {
+    border-bottom: 1px solid #8b7355;
+}
+
+/* Enhanced table styling */
+.post-content table {
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.post-content table th {
+    background: linear-gradient(135deg, #f8f6f0, #f5f3ed);
+    color: #2c3e50;
+    font-weight: 600;
+    border-bottom: 2px solid #8b7355;
+}
+
+.post-content table td, .post-content table th {
+    border: 1px solid #e1ddd4;
+    padding: 0.75rem;
+}
+
+/* Subtle section separators */
+.post-content h2:before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #8b7355;
+    margin: 0 0 1rem 0;
+}
+
+/* Enhanced home page styling - Heroic temple styling */
+.profile .profile_inner {
+    background: 
+        linear-gradient(135deg, rgba(245, 242, 232, 0.95) 0%, rgba(237, 231, 211, 0.95) 100%),
+        radial-gradient(circle at 30% 70%, rgba(139, 115, 85, 0.05), transparent);
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 
+        0 12px 48px rgba(139, 115, 85, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8),
+        0 0 0 3px rgba(139, 115, 85, 0.1);
+    border: 2px solid rgba(139, 115, 85, 0.3);
+    position: relative;
+}
+
+/* Laurel wreath corners */
+.profile .profile_inner::after {
+    content: '🏛️';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 2em;
+    background: #f8f5ed;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+    border: 2px solid rgba(139, 115, 85, 0.2);
+}
+
+/* Classical column effect for profile - Bold bronze */
+.profile .profile_inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(180deg, 
+        transparent 0%, 
+        #8b7355 5%, 
+        #b8956f 25%, 
+        #d4a574 50%, 
+        #b8956f 75%, 
+        #8b7355 95%, 
+        transparent 100%);
+    border-radius: 4px;
+    box-shadow: 2px 0 6px rgba(139, 115, 85, 0.3);
+}
+
+/* Elegant post cards - Heavily aged parchment scrolls */
+.post-entry {
+    background: 
+        /* Age spots and stains */
+        radial-gradient(ellipse at 85% 15%, rgba(139, 115, 85, 0.08) 0%, transparent 25%),
+        radial-gradient(ellipse at 15% 80%, rgba(160, 137, 107, 0.06) 0%, transparent 30%),
+        radial-gradient(ellipse at 70% 70%, rgba(139, 115, 85, 0.04) 0%, transparent 35%),
+        radial-gradient(ellipse at 25% 25%, rgba(160, 137, 107, 0.05) 0%, transparent 20%),
+        /* Wrinkle lines */
+        linear-gradient(25deg, transparent 48%, rgba(139, 115, 85, 0.03) 49%, rgba(139, 115, 85, 0.03) 51%, transparent 52%),
+        linear-gradient(135deg, transparent 47%, rgba(160, 137, 107, 0.025) 48%, rgba(160, 137, 107, 0.025) 50%, transparent 51%),
+        /* Base worn parchment */
+        linear-gradient(135deg, #f0e8d0 0%, #ebe0c8 100%);
+    border: 2px solid rgba(139, 115, 85, 0.3);
+    border-radius: 8px;
+    box-shadow: 
+        0 6px 20px rgba(139, 115, 85, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 0 80px rgba(139, 115, 85, 0.04);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.post-entry:hover {
+    box-shadow: 
+        0 12px 40px rgba(139, 115, 85, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 0 0 100px rgba(139, 115, 85, 0.06);
+    transform: translateY(-6px);
+    border-color: rgba(139, 115, 85, 0.4);
+}
+
+/* Classical accent line on post cards - Bold bronze */
+.post-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #8b7355, #b8956f, #d4a574, #b8956f, #8b7355);
+    box-shadow: 0 2px 4px rgba(139, 115, 85, 0.3);
+}
+
+/* Clean classical navigation styling */
+.nav a {
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+}
+
+.nav a:hover {
+    color: #8b7355;
+}
+
+/* Simple hover underline effect */
+.nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background-color: #8b7355;
+    transition: all 0.3s ease;
+}
+
+.nav a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+/* Light mode background - Warm parchment */
+body {
+    background: #f8f5ed;
+    min-height: 100vh;
+}
+
+/* Dark mode background */
+.dark body {
+    background: linear-gradient(180deg, #1a1a1a 0%, #1a1a1a 33%, #2d2d2d 33%, #2d2d2d 100%);
+}
+
+/* Dark mode text fixes */
+.dark .post-content h1, .dark .post-content h2, .dark .post-content h3,
+.dark .post-header h1, .dark .profile .profile_inner h1 {
+    color: #d4a574 !important;
+}
+
+.dark .post-meta, .dark .post-summary, .dark p {
+    color: #e0e0e0 !important;
+}
+
+/* Light mode diagonal slash - Smaller, more subtle */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 80vh;
+    background: linear-gradient(225deg, rgba(139, 115, 85, 0.08) 25%, transparent 25%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Light mode horizontal bronze band - Smaller bottom band */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(139, 115, 85, 0.08) 12%, transparent 12%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Dark mode diagonal slash - Smaller */
+.dark body::before {
+    background: linear-gradient(225deg, rgba(212, 165, 116, 0.08) 25%, transparent 25%);
+}
+
+/* Dark mode horizontal bronze band - Smaller */
+.dark body::after {
+    background: linear-gradient(0deg, rgba(212, 165, 116, 0.12) 12%, transparent 12%);
+}
+
+/* Responsive typography improvements */
+@media (max-width: 768px) {
+    .post-content h1, .post-content h2, .post-content h3 {
+        font-size: 1.2em;
+    }
+    
+    .profile .profile_inner {
+        padding: 1.5rem;
+    }
+    
+    /* Adjust slash position on mobile */
+    .main::before {
+        height: 60px;
+    }
+}

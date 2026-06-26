@@ -1,0 +1,60 @@
+/* ============================================================
+   The Peripatetic — classical typography over the marble scheme.
+   Cormorant Garamond for display, EB Garamond for reading.
+   ============================================================ */
+:root{
+  --font-display:"Cormorant Garamond",Georgia,serif;
+  --font-body:"EB Garamond",Georgia,serif;
+}
+
+/* Body copy: warm serif, a touch larger and airier for readability */
+html, body, .prose, input, textarea, button, select{
+  font-family:var(--font-body);
+}
+body{ font-size:1.06rem; line-height:1.72; }
+
+/* Headings & titles: high-contrast display serif */
+h1, h2, h3, h4, h5, h6,
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:.01em;
+  line-height:1.18;
+}
+
+/* Site name / brand in the header */
+header .text-xl, header .text-2xl{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:.02em;
+}
+
+/* A faint bronze rule beneath section headings — an inscriptional touch */
+.prose h2{
+  padding-bottom:.18em;
+  border-bottom:1px solid rgba(154,123,63,.30);
+}
+
+/* Keep code monospace — don't serif-ify code blocks or inline code */
+code, pre, kbd, samp, tt,
+.prose code, .prose pre, .highlight, .highlight *{
+  font-family:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace !important;
+}
+
+/* Widen the article reading column (Tailwind's max-w-prose is a narrow 65ch
+   and monospace code overflows it). 80ch keeps prose readable while giving
+   fenced code blocks room to sit on one line. The doubled class beats
+   Tailwind's utility specificity regardless of stylesheet order. */
+.article-content.max-w-prose{
+  max-width:80ch;
+}
+
+/* Render code a hair smaller than body text so typical lines fit the column
+   without horizontal scroll — and let the block use the column's full width. */
+.article-content .highlight-wrapper,
+.article-content .highlight{
+  width:100%;
+}
+.article-content pre.chroma{
+  font-size:0.9em;
+}

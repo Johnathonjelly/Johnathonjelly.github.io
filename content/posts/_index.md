@@ -1,23 +1,15 @@
 +++
-title = "Lorem Ipsum Dolor Sit Amet"
-description = "Explore thoughts and insights organized by classical themes"
+title = "Dialogos"
+description = "Two classical paths: the work of learning, and everything else."
+showTableOfContents = false
 +++
 
-## Lorem Ipsum Dolor
+Two paths. One for the work of learning, one for everything else a wandering mind gets up to.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+## [μάθησις · Mathesis](/categories/mathesis/)
 
-## Sed Ut Perspiciatis
+*Learning & craft.* Notes from the CCNA track, certifications, and the technical lessons worth writing down.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+## [Σύμμικτα · Symmikta](/categories/symmikta/)
 
-### Neque Porro Quisquam
-
-- **Totam rem aperiam** - Eaque ipsa quae ab illo inventore veritatis
-- **Et quasi architecto** - Beatae vitae dicta sunt explicabo
-- **Nemo enim ipsam** - Voluptatem quia voluptas sit aspernatur
-- **Aut odit aut fugit** - Sed quia consequuntur magni dolores
-
-## At Vero Eos
-
-Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+*A miscellany.* Wine, archery, philosophy, training, and the occasional short story. Everything outside the workshop.

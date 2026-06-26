@@ -1,0 +1,41 @@
+/* Marble & Bronze — a warm classical scheme for The Peripatetic.
+   Neutral ramp runs marble-white (light) → warm ink (dark) so it reads
+   well in both appearances. Primary = aged bronze. Secondary = Spartan oxblood. */
+:root {
+  /* Warm stone / marble → ink */
+  --color-neutral: 247, 245, 238;
+  --color-neutral-50: 250, 248, 242;
+  --color-neutral-100: 241, 238, 230;
+  --color-neutral-200: 230, 225, 214;
+  --color-neutral-300: 209, 202, 186;
+  --color-neutral-400: 168, 159, 142;
+  --color-neutral-500: 124, 116, 101;
+  --color-neutral-600: 88, 82, 71;
+  --color-neutral-700: 60, 55, 47;
+  --color-neutral-800: 38, 35, 29;
+  --color-neutral-900: 26, 24, 19;
+
+  /* Aged bronze */
+  --color-primary-50: 247, 242, 231;
+  --color-primary-100: 238, 228, 206;
+  --color-primary-200: 224, 206, 166;
+  --color-primary-300: 205, 180, 124;
+  --color-primary-400: 178, 150, 92;
+  --color-primary-500: 154, 123, 63;
+  --color-primary-600: 130, 102, 49;
+  --color-primary-700: 104, 81, 39;
+  --color-primary-800: 82, 64, 32;
+  --color-primary-900: 64, 50, 26;
+
+  /* Spartan oxblood */
+  --color-secondary-50: 248, 233, 234;
+  --color-secondary-100: 240, 207, 210;
+  --color-secondary-200: 226, 165, 171;
+  --color-secondary-300: 206, 116, 125;
+  --color-secondary-400: 176, 71, 82;
+  --color-secondary-500: 140, 39, 51;
+  --color-secondary-600: 118, 32, 43;
+  --color-secondary-700: 96, 27, 36;
+  --color-secondary-800: 76, 22, 29;
+  --color-secondary-900: 60, 18, 24;
+}

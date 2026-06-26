@@ -29,4 +29,4 @@ Yet he remains eternally a student, understanding that true mastery, like the ho
 
 ## Contact & Contemplation
 
-For discourse on matters technical, strategic, or philosophical, Johnathon may be reached at southworthjohnathon@gmail.com. Those seeking deeper professional context may explore his [LinkedIn presence](https://www.linkedin.com/in/johnathon-southworth-5a4b28132/), where the full chronicle of his professional accomplishments awaits the discerning reader.
+For discourse on matters technical, strategic, or philosophical, Johnathon may be reached at southworthjohnathon@gmail.com. Those seeking deeper professional context may explore his [LinkedIn presence](https://www.linkedin.com/in/johnathon-southworth/), where the full chronicle of his professional accomplishments awaits the discerning reader.

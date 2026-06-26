@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ .Title }}</title>
+  <meta name="description" content="Save my contact in one tap, and let's connect.">
+  <meta name="theme-color" content="#e4e0d5">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Johnathon Southworth · Connect">
+  <meta property="og:description" content="Save my contact in one tap.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========  "MARBLE & BRONZE" — xenía, the token of guest-friendship  ======== */
+    :root{
+      --stone:#e4e0d5;--slab:#f6f4ed;--ink:#23262b;--ink-soft:#565a61;
+      --bronze:#9a7b3f;--bronze-deep:#7a5f2e;--oxblood:#8c2733;
+      --line:#d6d0c1;--line-soft:#e6e1d4;
+      --display:"Cormorant Garamond",Georgia,serif;
+      --body:"EB Garamond",Georgia,serif;
+      --radius:4px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      font-family:var(--body);font-size:18px;line-height:1.6;color:var(--ink);
+      background:radial-gradient(900px 480px at 50% -120px,#efece3,transparent 70%),var(--stone);
+      min-height:100dvh;display:flex;flex-direction:column;align-items:center;
+      -webkit-font-smoothing:antialiased;
+      padding:max(22px,env(safe-area-inset-top)) 16px max(30px,env(safe-area-inset-bottom));
+    }
+    .wrap{width:100%;max-width:430px}
+
+    /* top strip — ties the card back into the site */
+    .topnav{display:flex;align-items:center;justify-content:space-between;width:100%;
+      margin-bottom:14px;font-family:var(--display)}
+    .topnav .brand{font-size:18px;font-weight:600;letter-spacing:.03em;color:var(--ink);text-decoration:none}
+    .topnav .brand:hover{color:var(--bronze-deep)}
+    .topnav .navlinks a{font-size:15px;color:var(--ink-soft);text-decoration:none;margin-left:16px}
+    .topnav .navlinks a:hover{color:var(--bronze-deep)}
+
+    .card{
+      background:var(--slab);border:1px solid var(--line);border-top:3px solid var(--bronze);
+      padding:36px 30px 30px;
+      box-shadow:0 40px 80px -52px rgba(60,50,30,.55),0 2px 0 rgba(255,255,255,.6) inset;
+    }
+
+    /* ----  inscription header  ---- */
+    header{text-align:center}
+    .eyebrow{font-family:var(--display);font-size:14px;letter-spacing:.34em;text-transform:uppercase;
+      color:var(--bronze-deep)}
+    .eyebrow .gk{display:block;font-size:21px;letter-spacing:.1em;text-transform:none;margin-bottom:3px;color:var(--ink)}
+
+    /* signet seal */
+    .seal{width:74px;height:74px;border-radius:50%;margin:18px auto 16px;display:grid;place-items:center;
+      position:relative;font-family:var(--display);font-weight:600;font-size:30px;letter-spacing:.04em;
+      color:var(--bronze-deep);background:radial-gradient(circle at 36% 30%,#fcfaf4,#e9e3d4);
+      border:1px solid var(--bronze);
+      box-shadow:inset 0 1px 2px rgba(255,255,255,.85),0 2px 5px rgba(120,95,46,.22)}
+    .seal::before{content:"";position:absolute;inset:5px;border-radius:50%;border:1px solid rgba(154,123,63,.4)}
+
+    h1{font-family:var(--display);font-weight:600;font-size:31px;line-height:1.1;
+      letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+    .rule{width:54px;height:1px;background:var(--bronze);margin:16px auto 14px;position:relative}
+    .rule::before,.rule::after{content:"";position:absolute;top:50%;width:5px;height:5px;
+      transform:translateY(-50%) rotate(45deg);background:var(--bronze)}
+    .rule::before{left:-11px}.rule::after{right:-11px}
+    .role{font-family:var(--display);font-size:19px;font-weight:500;letter-spacing:.04em;color:var(--ink)}
+    .tagline{color:var(--ink-soft);font-size:16.5px;margin-top:12px}
+
+    /* ----  the one-tap CTA  ---- */
+    .save{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;
+      margin-top:24px;padding:16px 20px;font-family:var(--display);font-size:19px;font-weight:600;
+      letter-spacing:.05em;color:#f7f2e6;text-decoration:none;
+      background:var(--bronze-deep);border:1px solid var(--bronze-deep);border-radius:var(--radius);
+      cursor:pointer;transition:background .18s ease,transform .12s ease}
+    .save:hover{background:#6a521f}
+    .save:active{transform:scale(.99)}
+    .save svg{width:19px;height:19px}
+    .save-hint{text-align:center;color:var(--ink-soft);font-size:14px;font-style:italic;margin-top:9px}
+
+    /* ----  links  ---- */
+    .links{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}
+    .link{display:flex;align-items:center;gap:10px;padding:12px 14px;text-decoration:none;
+      color:var(--ink);font-family:var(--display);font-size:16.5px;letter-spacing:.01em;
+      background:#fbfaf6;border:1px solid var(--line);border-radius:var(--radius);
+      transition:border-color .16s ease,color .16s ease,background .16s ease}
+    .link:hover{border-color:var(--bronze);color:var(--bronze-deep);background:#fff}
+    .link.full{grid-column:1 / -1}
+    .link svg{width:17px;height:17px;flex:none;color:var(--bronze-deep)}
+
+    /* ----  divider  ---- */
+    .sep{display:flex;align-items:center;gap:14px;margin:30px 0 6px;text-align:center}
+    .sep::before,.sep::after{content:"";height:1px;background:var(--line);flex:1}
+    .sep b{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.06em;color:var(--ink)}
+    .sep-sub{text-align:center;font-style:italic;color:var(--ink-soft);font-size:15px;margin-bottom:16px}
+
+    /* ----  form  ---- */
+    form{display:grid;gap:13px}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .field{display:flex;flex-direction:column;gap:5px}
+    label{font-family:var(--display);font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze-deep)}
+    label .req{color:var(--oxblood)}
+    input,textarea{font-family:var(--body);font-size:17px;color:var(--ink);background:#fcfbf7;
+      border:1px solid var(--line);border-radius:var(--radius);padding:11px 13px;width:100%;
+      transition:border-color .16s ease,box-shadow .16s ease}
+    input::placeholder,textarea::placeholder{color:#a39c8a}
+    input:focus,textarea:focus{outline:none;border-color:var(--bronze);box-shadow:0 0 0 3px rgba(154,123,63,.16)}
+    textarea{resize:vertical;min-height:74px}
+    .submit{margin-top:3px;padding:14px;font-family:var(--display);font-weight:600;font-size:18px;
+      letter-spacing:.05em;color:var(--bronze-deep);cursor:pointer;background:transparent;
+      border:1px solid var(--bronze);border-radius:var(--radius);transition:background .16s ease,color .16s ease}
+    .submit:hover{background:var(--bronze-deep);color:#f7f2e6}
+    .submit:disabled{opacity:.55;cursor:not-allowed}
+    .form-msg{font-family:var(--display);font-size:16px;margin-top:3px;min-height:18px}
+    .form-msg.ok{color:var(--bronze-deep)}
+    .form-msg.err{color:var(--oxblood)}
+    .consent{color:var(--ink-soft);font-size:13.5px;line-height:1.5}
+
+    footer{margin-top:22px;text-align:center;font-family:var(--display);font-style:italic;
+      font-size:15px;color:var(--ink-soft)}
+    footer a{color:var(--bronze-deep);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    @media (max-width:380px){.links,.frow{grid-template-columns:1fr}}
+    @media (prefers-reduced-motion:reduce){.save{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav">
+      <a class="brand" href="/">The Peripatetic</a>
+      <span class="navlinks"><a href="/posts/">Blog</a><a href="/about/">About</a></span>
+    </nav>
+    <main class="card">
+
+      <!-- ====  inscription + signet seal  ==== -->
+      <header>
+        <p class="eyebrow"><span class="gk">ξενία</span>guest-friendship</p>
+        <div class="seal" aria-hidden="true">JS</div>
+        <h1>Johnathon Southworth</h1>
+        <div class="rule"></div>
+        <p class="role">Senior Platform Engineer</p>
+        <p class="tagline">Full-stack &amp; systems architect. Sole technical owner of a CRM-integrated platform serving 300+ users across 12 distribution groups.</p>
+      </header>
+
+      <!-- ====  take my token: one-tap contact  ==== -->
+      <a class="save" href="/johnathon-southworth.vcf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        Save my contact
+      </a>
+      <p class="save-hint">one tap adds me to your phone</p>
+
+      <nav class="links">
+        <a class="link" href="https://www.linkedin.com/in/johnathon-southworth/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg>
+          LinkedIn
+        </a>
+        <a class="link" href="https://github.com/Johnathonjelly" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.7c-2.78.62-3.37-1.22-3.37-1.22-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9l-.01 2.81c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a class="link full" href="mailto:southworthjohnathon@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          southworthjohnathon@gmail.com
+        </a>
+        <a class="link" href="/resume/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+          Résumé
+        </a>
+        <!-- TODO: drop your PDF at static/resume.pdf -->
+        <a class="link" href="/resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download PDF
+        </a>
+      </nav>
+
+      <!-- ====  ἀντίδωρον — the gift in return: share your details  ==== -->
+      <div class="sep"><b>ἀντίδωρον</b></div>
+      <p class="sep-sub">a gift in return. Leave your details and I'll reach out.</p>
+
+      <form id="contact-form" autocomplete="on" novalidate>
+        <div class="frow">
+          <div class="field">
+            <label for="firstname">First name <span class="req">*</span></label>
+            <input id="firstname" name="firstname" type="text" autocomplete="given-name" placeholder="Ada" required>
+          </div>
+          <div class="field">
+            <label for="lastname">Last name</label>
+            <input id="lastname" name="lastname" type="text" autocomplete="family-name" placeholder="Lovelace">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" required>
+        </div>
+        <div class="frow">
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567">
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" autocomplete="organization" placeholder="Acme Inc.">
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" autocomplete="off" placeholder="Great meeting you. Let's stay in touch."></textarea>
+        </div>
+        <button class="submit" type="submit">Send →</button>
+        <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+        <p class="consent">Your details come straight to me. No newsletter, no spam.</p>
+      </form>
+    </main>
+
+    <footer><a href="/">the peripatetic</a> · a wandering mind's journey</footer>
+  </div>
+
+  <script>
+  /* ==========================================================================
+     HUBSPOT CONFIG  —  ⚠  REPLACE THESE TWO VALUES
+     Portal ID:  HubSpot → Settings → Account Information
+     Form GUID:  HubSpot → Marketing → Forms → (your form) → Share/Embed code
+     ========================================================================== */
+  const HUBSPOT_PORTAL_ID = "YOUR_PORTAL_ID";   // e.g. "12345678"
+  const HUBSPOT_FORM_GUID = "YOUR_FORM_GUID";   // e.g. "a1b2c3d4-...."
+  /* ========================================================================== */
+
+  const isConfigured = !/^YOUR_/.test(HUBSPOT_PORTAL_ID) && !/^YOUR_/.test(HUBSPOT_FORM_GUID);
+
+  // Load HubSpot tracking so the `hubspotutk` cookie is set — it ties this
+  // submission to the visitor's timeline in your HubSpot CRM.
+  if (isConfigured){
+    const s=document.createElement("script");
+    s.id="hs-script-loader";s.async=true;s.defer=true;
+    s.src="//js.hs-scripts.com/"+HUBSPOT_PORTAL_ID+".js";
+    document.head.appendChild(s);
+  }
+
+  const getCookie=n=>{const m=document.cookie.match(new RegExp("(?:^|; )"+n+"=([^;]*)"));return m?decodeURIComponent(m[1]):"";};
+  const form=document.getElementById("contact-form");
+  const msg=document.getElementById("form-msg");
+
+  form.addEventListener("submit",async e=>{
+    e.preventDefault();
+    msg.className="form-msg";msg.textContent="";
+    const data=new FormData(form);
+    const email=(data.get("email")||"").trim();
+    const first=(data.get("firstname")||"").trim();
+    if(!first||!email){msg.className="form-msg err";msg.textContent="Add your first name and email to send.";return;}
+
+    const fields=["firstname","lastname","email","phone","company","message"]
+      .map(name=>({name,value:(data.get(name)||"").trim()})).filter(f=>f.value);
+    const payload={fields,context:{hutk:getCookie("hubspotutk")||undefined,pageUri:location.href,pageName:document.title}};
+
+    const btn=form.querySelector(".submit");
+    btn.disabled=true;btn.textContent="Sending…";
+
+    if(!isConfigured){
+      console.warn("HubSpot not configured. Payload that WOULD be sent:",payload);
+      msg.className="form-msg ok";msg.textContent="✓ Wired up. Add your HubSpot IDs to go live.";
+      btn.disabled=false;btn.textContent="Send →";return;
+    }
+    const url="https://api.hsforms.com/submissions/v3/integration/submit/"
+      +encodeURIComponent(HUBSPOT_PORTAL_ID)+"/"+encodeURIComponent(HUBSPOT_FORM_GUID);
+    try{
+      const res=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+      if(res.ok){form.reset();msg.className="form-msg ok";msg.textContent="✓ Received. I'll be in touch.";}
+      else{const err=await res.json().catch(()=>({}));console.error("HubSpot error:",err);
+        msg.className="form-msg err";msg.textContent="That didn't go through. Try again, or email me directly.";}
+    }catch(err){console.error(err);msg.className="form-msg err";msg.textContent="Network error. Try again, or email me directly.";}
+    finally{btn.disabled=false;btn.textContent="Send →";}
+  });
+  </script>
+</body>
+</html>

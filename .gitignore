@@ -39,3 +39,6 @@ yarn-error.log*
 
 # Local development notes (not for public repo)
 LOCAL_DEVELOPMENT.md
+
+*.env
+.env

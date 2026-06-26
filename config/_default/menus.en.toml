@@ -1,0 +1,53 @@
+# -- Main Menu --
+# Displayed in the header. Ordered by weight (low -> high).
+
+[[main]]
+  name = "Blog"
+  pageRef = "posts"
+  weight = 10
+
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 20
+
+[[main]]
+  name = "Résumé"
+  url = "/resume/"
+  weight = 25
+
+[[main]]
+  name = "Connect"
+  url = "/connect/"
+  weight = 30
+
+[[main]]
+  name = "Tags"
+  pageRef = "tags"
+  weight = 40
+
+# -- Social / icon links in the header --
+
+[[main]]
+  identifier = "github"
+  pre = "github"
+  url = "https://github.com/Johnathonjelly"
+  weight = 100
+
+[[main]]
+  identifier = "linkedin"
+  pre = "linkedin"
+  url = "https://www.linkedin.com/in/johnathon-southworth/"
+  weight = 110
+
+# -- Footer Menu --
+
+[[footer]]
+  name = "Tags"
+  pageRef = "tags"
+  weight = 10
+
+[[footer]]
+  name = "Categories"
+  pageRef = "categories"
+  weight = 20

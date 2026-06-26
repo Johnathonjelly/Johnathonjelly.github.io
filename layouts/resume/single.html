@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ .Title }}</title>
+  <meta name="description" content="Résumé of Johnathon Southworth, Senior Platform Engineer and full-stack systems architect.">
+  <meta name="theme-color" content="#e7e3d8">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========  "MARBLE & BRONZE"  — quarried stone, ink, aged bronze, one Spartan oxblood  ======== */
+    :root{
+      --stone:#e4e0d5;          /* quarried marble ground */
+      --slab:#f6f4ed;           /* polished marble slab */
+      --ink:#23262b;            /* carved ink */
+      --ink-soft:#565a61;
+      --bronze:#9a7b3f;         /* aged bronze — rules, labels, lambda */
+      --bronze-deep:#7a5f2e;
+      --oxblood:#8c2733;        /* Spartan crimson — impact only */
+      --line:#d6d0c1;           /* hairline */
+      --line-soft:#e6e1d4;
+      --display:"Cormorant Garamond",Georgia,serif;
+      --body:"EB Garamond",Georgia,serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:var(--body);font-size:18px;line-height:1.62;color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 50% -120px, #efece3, transparent 70%),
+        var(--stone);
+      padding:40px 18px 64px;
+      -webkit-font-smoothing:antialiased;
+    }
+    .page{max-width:820px;margin:0 auto}
+
+    /* ----  toolbar (screen only)  ---- */
+    .toolbar{display:flex;gap:14px 26px;justify-content:space-between;align-items:center;flex-wrap:wrap;
+      margin-bottom:22px;font-family:var(--display);font-size:16px;letter-spacing:.04em}
+    .toolbar .grp{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    .toolbar .brand{font-weight:600;color:var(--ink);font-size:18px}
+    .toolbar .brand:hover{color:var(--bronze-deep)}
+    .toolbar a,.toolbar button{
+      font-family:inherit;font-size:inherit;letter-spacing:inherit;color:var(--ink-soft);
+      background:none;border:none;cursor:pointer;text-decoration:none;padding:4px 0;
+      border-bottom:1px solid transparent;transition:color .2s ease,border-color .2s ease}
+    .toolbar a:hover,.toolbar button:hover{color:var(--bronze-deep);border-color:var(--bronze)}
+    .toolbar .dl{color:var(--bronze-deep);font-weight:600}
+
+    /* ----  the stele (marble slab)  ---- */
+    .stele{
+      background:var(--slab);
+      border:1px solid var(--line);
+      border-top:3px solid var(--bronze);
+      padding:54px 56px 48px;
+      box-shadow:0 40px 80px -50px rgba(60,50,30,.5),0 2px 0 rgba(255,255,255,.6) inset;
+    }
+
+    /* ----  inscription header  ---- */
+    header{text-align:center}
+    h1{font-family:var(--display);font-weight:600;font-size:46px;line-height:1.05;
+      letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+    .rule{width:64px;height:1px;background:var(--bronze);margin:20px auto 16px;position:relative}
+    .rule::before,.rule::after{content:"";position:absolute;top:50%;width:5px;height:5px;
+      transform:translateY(-50%) rotate(45deg);background:var(--bronze)}
+    .rule::before{left:-12px}.rule::after{right:-12px}
+    .epigraph{font-family:var(--display);font-style:italic;font-size:20px;color:var(--bronze-deep);letter-spacing:.02em}
+    .epigraph .gk{font-style:normal;letter-spacing:.06em}
+    .epigraph .en{color:var(--ink-soft)}
+    .role{font-family:var(--display);font-size:21px;font-weight:500;letter-spacing:.05em;
+      margin-top:18px;color:var(--ink)}
+    .summary{max-width:60ch;margin:16px auto 0;color:var(--ink-soft);font-size:17.5px}
+    .contact{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;margin-top:22px;
+      font-family:var(--display);font-size:16px;letter-spacing:.03em}
+    .contact a,.contact span{color:var(--ink-soft);text-decoration:none}
+    .contact a{border-bottom:1px solid var(--line);transition:color .2s,border-color .2s}
+    .contact a:hover{color:var(--bronze-deep);border-color:var(--bronze)}
+    .contact .dot{border:none;color:var(--bronze)}
+
+    /* ----  sections  ---- */
+    .block{margin-top:46px}
+    .sec{display:flex;align-items:baseline;gap:14px;margin-bottom:24px}
+    .sec .gk{font-family:var(--display);font-weight:600;font-size:28px;color:var(--ink);letter-spacing:.04em}
+    .sec .en{font-family:var(--display);font-size:14px;letter-spacing:.32em;text-transform:uppercase;color:var(--bronze-deep)}
+    .sec::after{content:"";flex:1;height:1px;background:var(--line);align-self:center}
+
+    /* experience — a walked path with lambda milestones */
+    .job{position:relative;padding:0 0 30px 30px;border-left:1px solid var(--line)}
+    .job:last-child{padding-bottom:0}
+    .job::before{content:"\039B";position:absolute;left:-11px;top:-2px;
+      font-family:var(--display);font-weight:700;font-size:19px;color:var(--bronze);
+      background:var(--slab);padding:0 2px;line-height:1}
+    .job-top{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+    .job-title{font-family:var(--display);font-weight:600;font-size:23px;color:var(--ink);letter-spacing:.01em}
+    .job-org{font-family:var(--display);font-size:18px;color:var(--bronze-deep);font-style:italic}
+    .job-date{font-family:var(--display);font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+    .job ul{list-style:none;margin:12px 0 0;padding:0}
+    .job li{position:relative;padding-left:20px;margin:8px 0;color:var(--ink-soft);font-size:17px}
+    .job li::before{content:"\039B";position:absolute;left:0;top:1px;font-family:var(--display);
+      font-size:13px;color:var(--bronze);opacity:.7}
+    .job li b{color:var(--oxblood);font-weight:600}
+
+    /* skills */
+    .craft{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px 34px}
+    .craft h3{font-family:var(--display);font-size:14px;letter-spacing:.22em;text-transform:uppercase;
+      color:var(--bronze-deep);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--line-soft)}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{font-family:var(--display);font-size:16px;letter-spacing:.02em;color:var(--ink);
+      border:1px solid var(--line);border-radius:2px;padding:4px 11px;background:#fbfaf6}
+    .skill.lead{background:var(--bronze-deep);border-color:var(--bronze-deep);color:#f7f2e6;font-weight:500}
+
+    /* certifications */
+    .cred{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1px solid var(--line-soft)}
+    .cred:last-child{border-bottom:none}
+    .cred b{font-family:var(--display);font-weight:600;font-size:19px;color:var(--ink)}
+    .cred .what{color:var(--ink-soft);font-size:16px}
+    .cred .status{margin-left:auto;font-family:var(--display);font-size:14px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+    .cred .status.done{color:var(--bronze-deep)}
+    .cred .status.prog{color:var(--oxblood);font-style:italic;text-transform:none;letter-spacing:.04em}
+
+    .edu{font-size:18px}
+    .edu b{font-family:var(--display);font-weight:600;font-size:20px}
+    .edu .where{color:var(--ink-soft)}
+
+    footer{margin-top:44px;text-align:center;font-family:var(--display);font-style:italic;
+      font-size:16px;color:var(--ink-soft);letter-spacing:.02em}
+    footer a{color:var(--bronze-deep);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    @media (max-width:560px){
+      body{font-size:17px}
+      .stele{padding:38px 24px 34px}
+      h1{font-size:34px;letter-spacing:.1em}
+      .job-date{width:100%}
+    }
+
+    /* ----  PRINT — clean marble→paper  ---- */
+    @media print{
+      @page{margin:16mm}
+      body{background:#fff;padding:0;font-size:11.5pt}
+      .toolbar{display:none}
+      .stele{box-shadow:none;border:none;border-top:2px solid var(--bronze-deep);padding:0}
+      .job::before,.job li::before,.skill{background:transparent!important}
+      .skill.lead{color:#000;background:transparent!important;border:1px solid var(--bronze-deep);font-weight:600;text-decoration:underline}
+      a{color:var(--ink)!important;border:none!important}
+      .rule{margin:14px auto 12px}
+      .block{margin-top:24px;break-inside:avoid}
+      .job{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <nav class="toolbar">
+      <div class="grp">
+        <a class="brand" href="/">The Peripatetic</a>
+        <a href="/posts/">Blog</a>
+        <a href="/about/">About</a>
+      </div>
+      <div class="grp">
+        <a href="/connect/">Connect</a>
+        <button onclick="window.print()">Print / Save PDF</button>
+        <a class="dl" href="/resume.pdf" download>Download PDF</a>
+      </div>
+    </nav>
+
+    <article class="stele">
+
+      <!-- ====  inscription  ==== -->
+      <header>
+        <h1>Johnathon Southworth</h1>
+        <div class="rule"></div>
+        <p class="epigraph"><span class="gk">σπεῦδε βραδέως</span> &nbsp;·&nbsp; <span class="en">make haste slowly</span></p>
+        <p class="role">Senior Platform Engineer &nbsp;·&nbsp; Full-Stack &amp; Systems Architecture</p>
+        <p class="summary">Full-stack engineer with eight years architecting and maintaining a CRM-integrated business platform across frontend, backend, integrations, security, and AI. Sole technical owner serving 300+ users across 12 distribution groups.</p>
+        <nav class="contact">
+          <a href="mailto:southworthjohnathon@gmail.com">southworthjohnathon@gmail.com</a>
+          <span class="dot">·</span>
+          <a href="https://www.linkedin.com/in/johnathon-southworth/" target="_blank" rel="noopener">linkedin.com/in/johnathon-southworth</a>
+          <span class="dot">·</span>
+          <a href="https://github.com/Johnathonjelly" target="_blank" rel="noopener">github.com/Johnathonjelly</a>
+          <span class="dot">·</span>
+          <span>White City, OR</span>
+        </nav>
+      </header>
+
+      <!-- ====  EXPERIENCE — ἔργα  ==== -->
+      <section class="block">
+        <div class="sec"><span class="gk">ἔργα</span><span class="en">Works</span></div>
+
+        <div class="job">
+          <div class="job-top">
+            <div><span class="job-title">Senior Platform Engineer</span> &nbsp;<span class="job-org">Playcraft Systems</span></div>
+            <div class="job-date">May 2021 – Present</div>
+          </div>
+          <ul>
+            <li>Sole technical owner of the dealer platform, meeting monthly with sales consultants to turn field pain points into shipped features for 12 distribution groups and 300+ external users.</li>
+            <li>Designed and shipped a HubSpot-connected dealer operations platform that avoided 60+ Sales Hub seats and over <b>$75K</b> in recurring annual licensing.</li>
+            <li>Built and deployed a production AI voice/text agent (VAPI + retrieval-augmented generation with human-in-the-loop escalation) that fully automated order-status lookups and eliminated 25+ weekly service emails.</li>
+            <li>Engineered the playground industry's first dynamic 3D configurator in Babylon.js, building a custom compatibility rules engine with real-time ASTM/CSA safety-compliance overlays that generate instant sales collateral.</li>
+            <li>Resolved a critical N+1 query cascade, cutting database queries from <b>~337 to 8</b> and payloads from <b>~99 MB to under 1 KB</b>, restoring sub-second performance.</li>
+            <li>Drove the full HubSpot implementation as sole admin: data model, custom objects, pipelines, lifecycle automation, lead scoring, and attribution reporting connecting marketing, sales, and service.</li>
+            <li>Architected multi-tier RBAC, token-based authentication, and strict tenant isolation across a shared multi-tenant platform.</li>
+            <li>Replaced legacy SharePoint silos with an AWS-backed DAM processing 70K+ source assets and 400K+ derivatives, with automated image-transformation pipelines and semantic search.</li>
+            <li>Built an OCR extraction pipeline parsing fabrication blueprints to auto-generate job-processor reports, eliminating dozens of weekly manual-review hours.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top">
+            <div><span class="job-title">Software Engineer</span> &nbsp;<span class="job-org">Playcraft Systems</span></div>
+            <div class="job-date">May 2018 – May 2021</div>
+          </div>
+          <ul>
+            <li>Engineered a BOM-driven document generation pipeline that cut weekly assembly time from <b>~30 hours to 2</b>, accelerating the sales cycle through instant self-serve retrieval.</li>
+            <li>Built a real-time sales analytics dashboard with React, a RESTful API, and D3.js, giving leadership distributor insights to forecast revenue and identify new markets.</li>
+            <li>Owned internal and public platform architecture end to end: database administration, CDN configuration, and backend security at high availability.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====  SKILLS — τέχναι  ==== -->
+      <section class="block">
+        <div class="sec"><span class="gk">τέχναι</span><span class="en">Craft</span></div>
+        <div class="craft">
+          <div>
+            <h3>Languages &amp; Paradigms</h3>
+            <div class="skills">
+              <span class="skill lead">Python</span><span class="skill lead">TypeScript</span><span class="skill">JavaScript</span><span class="skill">PHP · Craft CMS · Yii2</span><span class="skill">Node.js</span><span class="skill">Bash</span><span class="skill">SQL</span>
+            </div>
+          </div>
+          <div>
+            <h3>Frameworks &amp; UI</h3>
+            <div class="skills">
+              <span class="skill lead">React</span><span class="skill lead">Next.js</span><span class="skill">Babylon.js</span><span class="skill">D3.js</span>
+            </div>
+          </div>
+          <div>
+            <h3>APIs &amp; Integrations</h3>
+            <div class="skills">
+              <span class="skill lead">HubSpot</span><span class="skill">REST &amp; webhooks</span><span class="skill">Bidirectional sync</span><span class="skill">Stripe</span><span class="skill">Twilio</span><span class="skill">VAPI</span><span class="skill">Algolia</span>
+            </div>
+          </div>
+          <div>
+            <h3>Data &amp; Cloud</h3>
+            <div class="skills">
+              <span class="skill lead">MS SQL Server</span><span class="skill lead">Google Cloud</span><span class="skill lead">AWS</span><span class="skill">MySQL</span><span class="skill">Firebase</span><span class="skill">Redis</span><span class="skill">Serverless · CDN</span><span class="skill">Sentry</span>
+            </div>
+          </div>
+          <div>
+            <h3>Engineering Practice</h3>
+            <div class="skills">
+              <span class="skill">Git</span><span class="skill">CI/CD · Jenkins · GitHub Actions</span><span class="skill">Docker</span><span class="skill">TDD &amp; testing</span><span class="skill">Agile · Scrum</span>
+            </div>
+          </div>
+          <div>
+            <h3>AI &amp; Automation</h3>
+            <div class="skills">
+              <span class="skill lead">RAG pipelines</span><span class="skill">Voice/text agents</span><span class="skill">AI-assisted development</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====  CERTIFICATIONS — δοκιμή  ==== -->
+      <section class="block">
+        <div class="sec"><span class="gk">δοκιμή</span><span class="en">Credentials</span></div>
+        <div class="cred">
+          <b>CompTIA Security+</b><span class="what">information security fundamentals</span>
+          <span class="status done">Certified · 2024</span>
+        </div>
+        <div class="cred">
+          <b>Cisco CCNA</b><span class="what">routing &amp; switching, self-study</span>
+          <span class="status prog">in progress</span>
+        </div>
+      </section>
+
+      <!-- ====  EDUCATION — παιδεία  ==== -->
+      <section class="block">
+        <div class="sec"><span class="gk">παιδεία</span><span class="en">Education</span></div>
+        <p class="edu"><b>AAS, Web Development</b> <span class="where">Rogue Community College · June 2018</span></p>
+      </section>
+
+      <footer><a href="/">the peripatetic</a> · a wandering mind's journey through learning</footer>
+    </article>
+  </div>
+</body>
+</html>

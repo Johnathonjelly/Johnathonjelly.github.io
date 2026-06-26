@@ -1,0 +1,24 @@
+locale = "en"
+label = "English"
+weight = 1
+title = "The Peripatetic"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "January 2, 2006"
+  logo = ""
+  description = "A wandering mind's journey through learning, wisdom, and life's finer pursuits"
+
+[params.author]
+  name = "Johnathon Southworth"
+  email = "southworthjohnathon@gmail.com"
+  # image = "img/author.jpg" # add a photo to assets/img/author.jpg and uncomment
+  headline = "Craftsman of digital systems, student of the classics"
+  bio = "A wandering mind's journey through learning, wisdom, and life's finer pursuits."
+  links = [
+    { github = "https://github.com/Johnathonjelly" },
+    { linkedin = "https://www.linkedin.com/in/johnathon-southworth/" },
+    { email = "mailto:southworthjohnathon@gmail.com" },
+  ]

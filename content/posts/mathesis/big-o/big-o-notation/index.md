@@ -4,115 +4,134 @@ draft = true
 title = 'Big O Notation: A Practical Guide to Measuring Code Efficiency'
 description = 'A practical walkthrough of Big O notation: what each complexity class means, with runnable code examples.'
 categories = ['Mathesis']
-tags = ['Algorithms', 'TypeScript', 'PHP', 'Craft CMS', 'Yii2', 'Computer Science', 'Performance']
+tags = ['Algorithms', 'Python', 'PHP', 'Craft CMS', 'Yii2', 'Computer Science', 'Performance']
 series = ['Big O']
 showTableOfContents = true
 +++
 
+## What is Big O Notation?
+ Big O Notation is a way of mathematically describing how much memory or time an algorithm uses based on the size of its input. How does the memory or time grow as the input gets bigger? Basically, as your input scales, how well does your algorithm scale. Keep this graph in your head. Y axis is time, X axis is input size (n).
+
+```text
+ operations (time)
+   ^
+   |  O(n!) O(2^n)            O(n^2)
+   |    |    |                 /
+   |    |    |                /
+   |    |    |               /
+   |    |    |              /       O(n log n)
+   |    |    |             /       /
+   |    |    |            /      /
+   |    |    |           /     /         O(n)
+   |    |    |          /    /        /
+   |    |    |         /   /      /
+   |    |    |        /  /     /       O(log n)
+   |    |    |       / /   /     ______
+   |     \    \     // / __---
+   |      \    \   //_--
+   |       \____\_//________________________ O(1)
+   +--------------------------------------------->
+                  input size (n)
+```
+
 ## O(1) — Constant Time
 
-```typescript
-function getFirst<T>(items: T[]): T | undefined {
-  return items[0];
-}
+O(1) and O(n) are the ones we rarely sweat. O(1) is flat. Y never moves. One item or a million, same cost. O(n) does rise, but in a straight line. y = x. Double the input, double the work. Predictable. Nothing here jumps off the chart.
+
+```python
+def get_first(items):
+    return items[0] if items else None
 ```
 
 ## O(log n) — Logarithmic Time
 
-```typescript
-function binarySearch(
-  arr: number[],
-  target: number,
-): number {
-  let low = 0;
-  let high = arr.length - 1;
+```python
+def binary_search(items, target):
+    low, high = 0, len(items) - 1
 
-  while (low <= high) {
-    const mid = (low + high) >> 1;
-    if (arr[mid] === target) return mid;
-    if (arr[mid] < target) low = mid + 1;
-    else high = mid - 1;
-  }
+    while low <= high:
+        mid = (low + high) // 2
+        if items[mid] == target:
+            return mid
+        if items[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
 
-  return -1;
-}
+    return -1
 ```
 
 ## O(n) — Linear Time
 
-```typescript
-function findMax(items: number[]): number {
-  let max = items[0];
-  for (const n of items) {
-    if (n > max) max = n;
-  }
-  return max;
-}
+```python
+def find_max(items):
+    largest = items[0]
+    for n in items:
+        if n > largest:
+            largest = n
+    return largest
 ```
 
 ## O(n log n) — Linearithmic Time
 
-```typescript
-function mergeSort(arr: number[]): number[] {
-  if (arr.length <= 1) return arr;
-  const mid = arr.length >> 1;
-  const left = mergeSort(arr.slice(0, mid));
-  const right = mergeSort(arr.slice(mid));
-  return merge(left, right);
-}
+```python
+def merge_sort(items):
+    if len(items) <= 1:
+        return items
+    mid = len(items) // 2
+    left = merge_sort(items[:mid])
+    right = merge_sort(items[mid:])
+    return merge(left, right)
 
-function merge(a: number[], b: number[]): number[] {
-  const out: number[] = [];
-  let i = 0;
-  let j = 0;
-  while (i < a.length && j < b.length) {
-    if (a[i] <= b[j]) out.push(a[i++]);
-    else out.push(b[j++]);
-  }
-  return out.concat(a.slice(i), b.slice(j));
-}
+
+def merge(a, b):
+    result = []
+    i = j = 0
+    while i < len(a) and j < len(b):
+        if a[i] <= b[j]:
+            result.append(a[i])
+            i += 1
+        else:
+            result.append(b[j])
+            j += 1
+    result.extend(a[i:])
+    result.extend(b[j:])
+    return result
 ```
 
 ## O(n²) — Quadratic Time
 
-```typescript
-function hasDuplicate(items: number[]): boolean {
-  for (let i = 0; i < items.length; i++) {
-    for (let j = i + 1; j < items.length; j++) {
-      if (items[i] === items[j]) return true;
-    }
-  }
-  return false;
-}
+```python
+def has_duplicate(items):
+    for i in range(len(items)):
+        for j in range(i + 1, len(items)):
+            if items[i] == items[j]:
+                return True
+    return False
 ```
 
 ## O(2ⁿ) — Exponential Time
 
-```typescript
-function fib(n: number): number {
-  if (n <= 1) return n;
-  return fib(n - 1) + fib(n - 2);
-}
+```python
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n - 1) + fib(n - 2)
 ```
 
 ## O(n!) — Factorial Time
 
-```typescript
-function permutations<T>(items: T[]): T[][] {
-  if (items.length <= 1) return [items];
+```python
+def permutations(items):
+    if len(items) <= 1:
+        return [items]
 
-  const result: T[][] = [];
-  items.forEach((item, i) => {
-    const rest = [
-      ...items.slice(0, i),
-      ...items.slice(i + 1),
-    ];
-    for (const perm of permutations(rest)) {
-      result.push([item, ...perm]);
-    }
-  });
-  return result;
-}
+    result = []
+    for i, item in enumerate(items):
+        rest = items[:i] + items[i + 1:]
+        for perm in permutations(rest):
+            result.append([item] + perm)
+    return result
 ```
 
 ## N+1 Queries: O(n) Where It Hurts

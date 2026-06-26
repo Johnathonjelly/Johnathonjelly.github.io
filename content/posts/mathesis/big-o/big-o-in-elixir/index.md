@@ -9,6 +9,32 @@ series = ['Big O']
 showTableOfContents = true
 +++
 
+## What is Big O Notation?
+
+Big O Notation is a way of mathematically describing how much memory or time an algorithm uses based on the size of its input. How does the memory or time grow as the input gets bigger? Basically, as your input scales, how well does your algorithm scale. Keep this graph in your head. Y axis is time, X axis is input size (n).
+
+```text
+ operations (time)
+   ^
+   |  O(n!) O(2^n)            O(n^2)
+   |    |    |                 /
+   |    |    |                /
+   |    |    |               /
+   |    |    |              /       O(n log n)
+   |    |    |             /       /
+   |    |    |            /      /
+   |    |    |           /     /         O(n)
+   |    |    |          /    /        /
+   |    |    |         /   /      /
+   |    |    |        /  /     /       O(log n)
+   |    |    |       / /   /     ______
+   |     \    \     // / __---
+   |      \    \   //_--
+   |       \____\_//________________________ O(1)
+   +--------------------------------------------->
+                  input size (n)
+```
+
 ## O(1) — Constant Time
 
 ```elixir

@@ -1,6 +1,6 @@
 +++
 date = '2025-09-18T17:40:39-07:00'
-draft = false
+draft = true
 title = "Bordeaux Tasting Notes: A Sophisticated Evening"
 description = 'Detailed tasting notes and analysis of a legendary Bordeaux vintage'
 categories = ['Symmikta']

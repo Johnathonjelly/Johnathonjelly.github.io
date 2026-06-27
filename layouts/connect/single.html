@@ -184,7 +184,7 @@
       <div class="sep"><b>ἀντίδωρον</b></div>
       <p class="sep-sub">a gift in return. Leave your details and I'll reach out.</p>
 
-      <form id="contact-form" autocomplete="on" novalidate>
+      <form id="contact-form" action="https://formspree.io/f/southworthjohnathon@gmail.com" method="POST" autocomplete="on" novalidate>
         <div class="frow">
           <div class="field">
             <label for="firstname">First name <span class="req">*</span></label>
@@ -223,59 +223,45 @@
   </div>
 
   <script>
-  /* ==========================================================================
-     HUBSPOT CONFIG  —  ⚠  REPLACE THESE TWO VALUES
-     Portal ID:  HubSpot → Settings → Account Information
-     Form GUID:  HubSpot → Marketing → Forms → (your form) → Share/Embed code
-     ========================================================================== */
-  const HUBSPOT_PORTAL_ID = "YOUR_PORTAL_ID";   // e.g. "12345678"
-  const HUBSPOT_FORM_GUID = "YOUR_FORM_GUID";   // e.g. "a1b2c3d4-...."
-  /* ========================================================================== */
+  const form = document.getElementById("contact-form");
+  const msg  = document.getElementById("form-msg");
 
-  const isConfigured = !/^YOUR_/.test(HUBSPOT_PORTAL_ID) && !/^YOUR_/.test(HUBSPOT_FORM_GUID);
-
-  // Load HubSpot tracking so the `hubspotutk` cookie is set — it ties this
-  // submission to the visitor's timeline in your HubSpot CRM.
-  if (isConfigured){
-    const s=document.createElement("script");
-    s.id="hs-script-loader";s.async=true;s.defer=true;
-    s.src="//js.hs-scripts.com/"+HUBSPOT_PORTAL_ID+".js";
-    document.head.appendChild(s);
-  }
-
-  const getCookie=n=>{const m=document.cookie.match(new RegExp("(?:^|; )"+n+"=([^;]*)"));return m?decodeURIComponent(m[1]):"";};
-  const form=document.getElementById("contact-form");
-  const msg=document.getElementById("form-msg");
-
-  form.addEventListener("submit",async e=>{
+  form.addEventListener("submit", async e => {
     e.preventDefault();
-    msg.className="form-msg";msg.textContent="";
-    const data=new FormData(form);
-    const email=(data.get("email")||"").trim();
-    const first=(data.get("firstname")||"").trim();
-    if(!first||!email){msg.className="form-msg err";msg.textContent="Add your first name and email to send.";return;}
+    msg.className = "form-msg"; msg.textContent = "";
 
-    const fields=["firstname","lastname","email","phone","company","message"]
-      .map(name=>({name,value:(data.get(name)||"").trim()})).filter(f=>f.value);
-    const payload={fields,context:{hutk:getCookie("hubspotutk")||undefined,pageUri:location.href,pageName:document.title}};
-
-    const btn=form.querySelector(".submit");
-    btn.disabled=true;btn.textContent="Sending…";
-
-    if(!isConfigured){
-      console.warn("HubSpot not configured. Payload that WOULD be sent:",payload);
-      msg.className="form-msg ok";msg.textContent="✓ Wired up. Add your HubSpot IDs to go live.";
-      btn.disabled=false;btn.textContent="Send →";return;
+    const data  = new FormData(form);
+    const first = (data.get("firstname") || "").trim();
+    const email = (data.get("email")     || "").trim();
+    if (!first || !email) {
+      msg.className = "form-msg err";
+      msg.textContent = "Add your first name and email to send.";
+      return;
     }
-    const url="https://api.hsforms.com/submissions/v3/integration/submit/"
-      +encodeURIComponent(HUBSPOT_PORTAL_ID)+"/"+encodeURIComponent(HUBSPOT_FORM_GUID);
-    try{
-      const res=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
-      if(res.ok){form.reset();msg.className="form-msg ok";msg.textContent="✓ Received. I'll be in touch.";}
-      else{const err=await res.json().catch(()=>({}));console.error("HubSpot error:",err);
-        msg.className="form-msg err";msg.textContent="That didn't go through. Try again, or email me directly.";}
-    }catch(err){console.error(err);msg.className="form-msg err";msg.textContent="Network error. Try again, or email me directly.";}
-    finally{btn.disabled=false;btn.textContent="Send →";}
+
+    const btn = form.querySelector(".submit");
+    btn.disabled = true; btn.textContent = "Sending…";
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { "Accept": "application/json" }
+      });
+      if (res.ok) {
+        form.reset();
+        msg.className = "form-msg ok";
+        msg.textContent = "✓ Received. I'll be in touch.";
+      } else {
+        msg.className = "form-msg err";
+        msg.textContent = "That didn't go through. Try again, or email me directly.";
+      }
+    } catch {
+      msg.className = "form-msg err";
+      msg.textContent = "Network error. Try again, or email me directly.";
+    } finally {
+      btn.disabled = false; btn.textContent = "Send →";
+    }
   });
   </script>
 </body>

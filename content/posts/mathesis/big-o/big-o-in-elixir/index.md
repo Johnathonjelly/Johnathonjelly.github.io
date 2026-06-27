@@ -3,6 +3,7 @@ date = '2026-06-26T00:00:00-07:00'
 draft = false
 title = 'Big O in Elixir: How Immutability Rewrites the Rules'
 description = 'Big O notation in Elixir, where immutable linked lists invert the cost assumptions you learned in imperative languages.'
+summary = 'Big O notation in Elixir, where immutable linked lists invert the cost assumptions you learned in imperative languages.'
 categories = ['Mathesis']
 tags = ['Algorithms', 'Elixir', 'Functional Programming', 'Performance']
 series = ['Big O']

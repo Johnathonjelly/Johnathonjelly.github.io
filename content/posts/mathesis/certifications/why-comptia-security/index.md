@@ -1,6 +1,6 @@
 +++
 date = '2025-10-09T12:22:33-07:00'
-draft = false
+draft = true
 title = 'Why CompTIA Security+'
 description = 'Why I decided to pursue the CompTIA Security+ certification.'
 categories = ['Mathesis']

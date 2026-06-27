@@ -1,6 +1,6 @@
 +++
 date = '2025-09-18T17:40:39-07:00'
-draft = false
+draft = true
 title = "On Perseverance: Lessons from the Ancients"
 description = 'Reflections on persistence and resilience through classical literature'
 categories = ['Symmikta']

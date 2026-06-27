@@ -1,6 +1,6 @@
 +++
 date = '2025-09-18T17:00:26-07:00'
-draft = false
+draft = true
 title = "From Development to Security: A Career Transition"
 description = 'Lorem ipsum dolor sit amet transition journey'
 categories = ['Mathesis']

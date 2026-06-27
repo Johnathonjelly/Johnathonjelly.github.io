@@ -1,6 +1,6 @@
 +++
 date = '2025-09-18T16:59:38-07:00'
-draft = false
+draft = true
 title = "Starting My CCNA Journey: Network Fundamentals Deep Dive"
 description = 'Key learnings and insights from studying network fundamentals'
 categories = ['Mathesis']

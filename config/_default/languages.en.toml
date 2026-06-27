@@ -8,7 +8,7 @@ title = "The Peripatetic"
   isoCode = "en"
   rtl = false
   dateFormat = "January 2, 2006"
-  logo = ""
+  logo = "img/logo.png"
   description = "A wandering mind's journey through learning, wisdom, and life's finer pursuits"
 
 [params.author]

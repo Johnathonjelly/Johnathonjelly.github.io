@@ -3,6 +3,7 @@ date = '2026-06-26T00:00:00-07:00'
 draft = false
 title = 'Big O Notation: A Practical Guide to Measuring Code Efficiency'
 description = 'A practical walkthrough of Big O notation: what each complexity class means, with runnable code examples.'
+summary = 'A practical walkthrough of Big O notation: what each complexity class means, with runnable code examples.'
 categories = ['Mathesis']
 tags = ['Algorithms', 'Python', 'PHP', 'Craft CMS', 'Yii2', 'Computer Science', 'Performance']
 series = ['Big O']

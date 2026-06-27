@@ -1,7 +1,39 @@
 /* ============================================================
    The Peripatetic — classical typography over the marble scheme.
    Cormorant Garamond for display, EB Garamond for reading.
+   Self-hosted (latin woff2) and served same-origin from /fonts/
+   with font-display:swap so text paints immediately in the serif
+   fallback and swaps in with no blank flash (no Google CDN round-trip).
    ============================================================ */
+@font-face{
+  font-family:"Cormorant Garamond";
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url("/fonts/cormorant-garamond-600.woff2") format("woff2");
+}
+@font-face{
+  font-family:"EB Garamond";
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  src:url("/fonts/eb-garamond-400.woff2") format("woff2");
+}
+@font-face{
+  font-family:"EB Garamond";
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url("/fonts/eb-garamond-600.woff2") format("woff2");
+}
+@font-face{
+  font-family:"EB Garamond";
+  font-style:italic;
+  font-weight:400;
+  font-display:swap;
+  src:url("/fonts/eb-garamond-italic-400.woff2") format("woff2");
+}
+
 :root{
   --font-display:"Cormorant Garamond",Georgia,serif;
   --font-body:"EB Garamond",Georgia,serif;

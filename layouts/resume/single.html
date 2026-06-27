@@ -7,11 +7,18 @@
   <meta name="description" content="Résumé of Johnathon Southworth, Senior Platform Engineer and full-stack systems architect.">
   <meta name="theme-color" content="#e7e3d8">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/eb-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cormorant-garamond-600.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    /* Self-hosted classical serifs, same-origin, swap (no Google CDN). */
+    @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url("/fonts/cormorant-garamond-500.woff2") format("woff2")}
+    @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:600;font-display:swap;src:url("/fonts/cormorant-garamond-600.woff2") format("woff2")}
+    @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:700;font-display:swap;src:url("/fonts/cormorant-garamond-700.woff2") format("woff2")}
+    @font-face{font-family:"EB Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/eb-garamond-400.woff2") format("woff2")}
+    @font-face{font-family:"EB Garamond";font-style:normal;font-weight:500;font-display:swap;src:url("/fonts/eb-garamond-500.woff2") format("woff2")}
+    @font-face{font-family:"EB Garamond";font-style:italic;font-weight:400;font-display:swap;src:url("/fonts/eb-garamond-italic-400.woff2") format("woff2")}
+
     /* ========  "MARBLE & BRONZE"  — quarried stone, ink, aged bronze, one Spartan oxblood  ======== */
     :root{
       --stone:#e4e0d5;          /* quarried marble ground */

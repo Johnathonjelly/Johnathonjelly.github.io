@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{{ .Title }}</title>
-  <meta name="description" content="Résumé of Johnathon Southworth, Senior Platform Engineer and full-stack systems architect.">
+  <meta name="description" content="Résumé of Johnathon Southworth, Senior Full-Stack Engineer and systems architect.">
   <meta name="theme-color" content="#e7e3d8">
 
   <link rel="preload" href="/fonts/eb-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -19,15 +19,15 @@
     @font-face{font-family:"EB Garamond";font-style:normal;font-weight:500;font-display:swap;src:url("/fonts/eb-garamond-500.woff2") format("woff2")}
     @font-face{font-family:"EB Garamond";font-style:italic;font-weight:400;font-display:swap;src:url("/fonts/eb-garamond-italic-400.woff2") format("woff2")}
 
-    /* ========  "MARBLE & BRONZE"  — quarried stone, ink, aged bronze, one Spartan oxblood  ======== */
+    /* ========  "MARBLE & BRONZE"  - quarried stone, ink, aged bronze, one Spartan oxblood  ======== */
     :root{
       --stone:#e4e0d5;          /* quarried marble ground */
       --slab:#f6f4ed;           /* polished marble slab */
       --ink:#23262b;            /* carved ink */
       --ink-soft:#565a61;
-      --bronze:#9a7b3f;         /* aged bronze — rules, labels, lambda */
+      --bronze:#9a7b3f;         /* aged bronze - rules, labels, lambda */
       --bronze-deep:#7a5f2e;
-      --oxblood:#8c2733;        /* Spartan crimson — impact only */
+      --oxblood:#8c2733;        /* Spartan crimson - impact only */
       --line:#d6d0c1;           /* hairline */
       --line-soft:#e6e1d4;
       --display:"Cormorant Garamond",Georgia,serif;
@@ -94,7 +94,7 @@
     .sec .en{font-family:var(--display);font-size:14px;letter-spacing:.32em;text-transform:uppercase;color:var(--bronze-deep)}
     .sec::after{content:"";flex:1;height:1px;background:var(--line);align-self:center}
 
-    /* experience — a walked path with lambda milestones */
+    /* experience - a walked path with lambda milestones */
     .job{position:relative;padding:0 0 30px 30px;border-left:1px solid var(--line)}
     .job:last-child{padding-bottom:0}
     .job::before{content:"\039B";position:absolute;left:-11px;top:-2px;
@@ -144,7 +144,7 @@
       .job-date{width:100%}
     }
 
-    /* ----  PRINT — clean marble→paper  ---- */
+    /* ----  PRINT - clean marble→paper  ---- */
     @media print{
       @page{margin:16mm}
       body{background:#fff;padding:0;font-size:11.5pt}
@@ -182,8 +182,8 @@
         <h1>Johnathon Southworth</h1>
         <div class="rule"></div>
         <p class="epigraph"><span class="gk">σπεῦδε βραδέως</span> &nbsp;·&nbsp; <span class="en">make haste slowly</span></p>
-        <p class="role">Senior Platform Engineer &nbsp;·&nbsp; Full-Stack &amp; Systems Architecture</p>
-        <p class="summary">Full-stack engineer with eight years architecting and maintaining a CRM-integrated business platform across frontend, backend, integrations, security, and AI. Sole technical owner serving 300+ users across 12 distribution groups.</p>
+        <p class="role">Senior Full-Stack Engineer &nbsp;·&nbsp; Product &amp; Systems Architecture</p>
+        <p class="summary">Full-stack engineer with eight years architecting and maintaining a CRM-integrated business platform across frontend, backend, integrations, security, and AI. Lead engineer serving 300+ users across 12 distribution groups.</p>
         <nav class="contact">
           <a href="mailto:southworthjohnathon@gmail.com">southworthjohnathon@gmail.com</a>
           <span class="dot">·</span>
@@ -195,24 +195,24 @@
         </nav>
       </header>
 
-      <!-- ====  EXPERIENCE — ἔργα  ==== -->
+      <!-- ====  EXPERIENCE - ἔργα  ==== -->
       <section class="block">
         <div class="sec"><span class="gk">ἔργα</span><span class="en">Works</span></div>
 
         <div class="job">
           <div class="job-top">
-            <div><span class="job-title">Senior Platform Engineer</span> &nbsp;<span class="job-org">Playcraft Systems</span></div>
+            <div><span class="job-title">Senior Full-Stack Engineer</span> &nbsp;<span class="job-org">Playcraft Systems</span></div>
             <div class="job-date">May 2021 – Present</div>
           </div>
           <ul>
-            <li>Sole technical owner of the dealer platform, meeting monthly with sales consultants to turn field pain points into shipped features for 12 distribution groups and 300+ external users.</li>
-            <li>Designed and shipped a HubSpot-connected dealer operations platform that avoided 60+ Sales Hub seats and over <b>$75K</b> in recurring annual licensing.</li>
-            <li>Built and deployed a production AI voice/text agent (VAPI + retrieval-augmented generation with human-in-the-loop escalation) that fully automated order-status lookups and eliminated 25+ weekly service emails.</li>
-            <li>Engineered the playground industry's first dynamic 3D configurator in Babylon.js, building a custom compatibility rules engine with real-time ASTM/CSA safety-compliance overlays that generate instant sales collateral.</li>
-            <li>Resolved a critical <a href="/posts/big-o-notation/#n1-queries-on-where-it-hurts">N+1 query cascade</a>, cutting database queries from <b>~337 to 8</b> and payloads from <b>~99 MB to under 1 KB</b>, restoring sub-second performance.</li>
-            <li>Drove the full HubSpot implementation as sole admin: data model, custom objects, pipelines, lifecycle automation, lead scoring, and attribution reporting connecting marketing, sales, and service.</li>
-            <li>Architected multi-tier RBAC, token-based authentication, and strict tenant isolation across a shared multi-tenant platform.</li>
-            <li>Replaced legacy SharePoint silos with an AWS-backed DAM processing 70K+ source assets and 400K+ derivatives, with automated image-transformation pipelines and semantic search.</li>
+            <li>Lead engineer on the dealer platform, partnering monthly with sales consultants to turn field pain points into shipped features for 12 distribution groups and 300+ external users.</li>
+            <li>Designed and shipped a HubSpot-connected dealer operations platform: data model, custom objects, pipelines, lifecycle automation, lead scoring, and attribution reporting across marketing, sales, and service. It replaced 60+ Sales Hub seats and over <b>$75K</b> in recurring annual licensing.</li>
+            <li>Built and deployed a production AI voice and text agent (VAPI with retrieval-augmented generation and human-in-the-loop escalation) that automated order-status lookups and cut 25+ weekly service emails.</li>
+            <li>Built the playground industry's first dynamic 3D configurator in Babylon.js, with a custom compatibility rules engine and real-time ASTM/CSA safety-compliance overlays that generate instant sales collateral.</li>
+            <li>Trained and self-hosted an AI asset-tagging pipeline: a fine-tuned vision model running as a containerized (Docker) Python/FastAPI/PyTorch microservice that tags products and dominant colors on every Craft CMS upload. A separate OpenAI model writes SEO and accessibility alt text library-wide.</li>
+            <li>Caught and fixed a silent <a href="/posts/big-o-notation/#n1-queries-on-where-it-hurts">N+1 query cascade</a> that nobody had noticed, cutting database queries from <b>~337 to 8</b> and payloads from <b>~99 MB to under 1 KB</b> and restoring sub-second performance.</li>
+            <li>Stood up the platform's CI safety net: <b>~6,500</b> unit, acceptance, and WebDriver tests on Jenkins per branch (provisioning Craft CMS and plugins per run), with Sentry monitoring in production.</li>
+            <li>Replaced legacy SharePoint silos with an AWS-backed DAM processing <b>70K+</b> source assets and <b>400K+</b> derivatives, with automated image-transformation pipelines and semantic search.</li>
             <li>Built an OCR extraction pipeline parsing fabrication blueprints to auto-generate job-processor reports, eliminating dozens of weekly manual-review hours.</li>
           </ul>
         </div>
@@ -223,27 +223,57 @@
             <div class="job-date">May 2018 – May 2021</div>
           </div>
           <ul>
+            <li>Took over a consultant-built Craft CMS site (handed off from an agency) and rebuilt it into a full application: every page and the entire backend, plus authenticated dealer logins, custom business-logic modules, and asset search. Cut filter searches from <b>~30s to near-instant</b>.</li>
             <li>Engineered a BOM-driven document generation pipeline that cut weekly assembly time from <b>~30 hours to 2</b>, accelerating the sales cycle through instant self-serve retrieval.</li>
             <li>Built a real-time sales analytics dashboard with React, a RESTful API, and D3.js, giving leadership distributor insights to forecast revenue and identify new markets.</li>
-            <li>Owned internal and public platform architecture end to end: database administration, CDN configuration, and backend security at high availability.</li>
+            <li>Built a shop-floor manufacturing execution system (MES) measuring output against engineered time standards, with role-based dashboards and exportable efficiency reports by department, individual, and date.</li>
+            <li>Re-architected the MES offline-first with a service worker, IndexedDB, and network-aware sync, so it keeps working through the dropped connections and rough conditions of a manufacturing floor.</li>
+            <li>Architected multi-tier RBAC, token-based authentication, and strict tenant isolation across a shared multi-tenant platform.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top">
+            <div><span class="job-title">Programmer Analyst</span> &nbsp;<span class="job-org">Rogue Community College</span></div>
+            <div class="job-date">Sep 2017 – Mar 2018</div>
+          </div>
+          <ul>
+            <li>Built interactive Power BI reports on the college's internal IT ticketing system, tracking staff assignments, ticket priorities, and resolution times to guide staffing and annual reviews.</li>
+            <li>Created a check-in/check-out system that tracked student presence in the computer labs and library, giving staff accurate usage data for resource planning.</li>
           </ul>
         </div>
       </section>
 
-      <!-- ====  SKILLS — τέχναι  ==== -->
+      <!-- ====  PROJECTS - πάρεργα  ==== -->
+      <section class="block">
+        <div class="sec"><span class="gk">πάρεργα</span><span class="en">Independent Work</span></div>
+        <div class="job">
+          <div class="job-top">
+            <div><span class="job-title">Founder</span> &nbsp;<span class="job-org">Latigo Health</span></div>
+            <div class="job-date">2025 – Present</div>
+          </div>
+          <ul>
+            <li>Built a multi-tenant animal-management SaaS (<b>~150K LOC</b> across <b>1,000+</b> commits) covering animal records, health and compliance, daily-care routines, inventory, and an immutable double-entry financial ledger.</li>
+            <li>Wrote atomic inventory-to-ledger transactions, DEA-grade controlled-substance logging with two-person sign-off, and tenant isolation enforced at the database layer.</li>
+            <li>Moved the build off Next.js, React, and Firebase onto Elixir/Phoenix and PostgreSQL once NoSQL couldn't guarantee the relational integrity the domain needed. Added a 15-flow Google Genkit AI suite (OCR and vision) on a TDD pipeline with custom CI guards and Sentry.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====  SKILLS - τέχναι  ==== -->
       <section class="block">
         <div class="sec"><span class="gk">τέχναι</span><span class="en">Craft</span></div>
         <div class="craft">
           <div>
             <h3>Languages &amp; Paradigms</h3>
             <div class="skills">
-              <span class="skill lead">Python</span><span class="skill lead">TypeScript</span><span class="skill">JavaScript</span><span class="skill">PHP · Craft CMS · Yii2</span><span class="skill">Node.js</span><span class="skill">Bash</span><span class="skill">SQL</span>
+              <span class="skill lead">Python</span><span class="skill lead">TypeScript</span><span class="skill">JavaScript</span><span class="skill">PHP</span><span class="skill">Elixir</span><span class="skill">Node.js</span><span class="skill">Bash</span><span class="skill">SQL</span>
             </div>
           </div>
           <div>
             <h3>Frameworks &amp; UI</h3>
             <div class="skills">
-              <span class="skill lead">React</span><span class="skill lead">Next.js</span><span class="skill">Babylon.js</span><span class="skill">D3.js</span>
+              <span class="skill lead">React</span><span class="skill lead">Next.js</span><span class="skill lead">Craft CMS</span><span class="skill">Yii2</span><span class="skill">Phoenix</span><span class="skill">Babylon.js</span><span class="skill">D3.js</span>
             </div>
           </div>
           <div>
@@ -255,7 +285,7 @@
           <div>
             <h3>Data &amp; Cloud</h3>
             <div class="skills">
-              <span class="skill lead">MS SQL Server</span><span class="skill lead">Google Cloud</span><span class="skill lead">AWS</span><span class="skill">MySQL</span><span class="skill">Firebase</span><span class="skill">Redis</span><span class="skill">Serverless · CDN</span><span class="skill">Sentry</span>
+              <span class="skill lead">MS SQL Server</span><span class="skill lead">PostgreSQL</span><span class="skill lead">Google Cloud</span><span class="skill lead">AWS</span><span class="skill">MySQL</span><span class="skill">Firebase</span><span class="skill">Redis</span><span class="skill">Serverless · CDN</span><span class="skill">Sentry</span>
             </div>
           </div>
           <div>
@@ -267,13 +297,13 @@
           <div>
             <h3>AI &amp; Automation</h3>
             <div class="skills">
-              <span class="skill lead">RAG pipelines</span><span class="skill">Voice/text agents</span><span class="skill">AI-assisted development</span>
+              <span class="skill lead">RAG pipelines</span><span class="skill lead">Fine-tuning</span><span class="skill">PyTorch · FastAPI</span><span class="skill">OpenAI · Hugging Face</span><span class="skill">Google Genkit</span><span class="skill">Voice/text agents</span><span class="skill">Computer vision · OCR</span><span class="skill">AI-assisted development</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ====  CERTIFICATIONS — δοκιμή  ==== -->
+      <!-- ====  CERTIFICATIONS - δοκιμή  ==== -->
       <section class="block">
         <div class="sec"><span class="gk">δοκιμή</span><span class="en">Credentials</span></div>
         <div class="cred">
@@ -286,7 +316,7 @@
         </div>
       </section>
 
-      <!-- ====  EDUCATION — παιδεία  ==== -->
+      <!-- ====  EDUCATION - παιδεία  ==== -->
       <section class="block">
         <div class="sec"><span class="gk">παιδεία</span><span class="en">Education</span></div>
         <p class="edu"><b>AAS, Web Development</b> <span class="where">Rogue Community College · June 2018</span></p>

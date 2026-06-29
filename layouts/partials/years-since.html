@@ -1,0 +1,7 @@
+{{- /*
+  years-since: completed whole years from a May-of-given-year start to build time.
+  Usage: {{ partial "years-since.html" 2018 }}  ->  "8" (auto-bumps each year on rebuild)
+  Counts from May (employment anniversary) so it never overstates mid-year.
+*/ -}}
+{{- $start := time.AsTime (printf "%d-05-01T00:00:00Z" .) -}}
+{{- printf "%.0f" (math.Floor (div (sub now.Unix $start.Unix) 31557600.0)) -}}

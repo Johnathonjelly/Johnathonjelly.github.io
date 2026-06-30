@@ -136,6 +136,76 @@
 
     @media (max-width:380px){.links,.frow{grid-template-columns:1fr}}
     @media (prefers-reduced-motion:reduce){.save{transition:none}}
+
+    /* ========  σύμβολον — the contact token (modal)  ======== */
+    body.modal-open{overflow:hidden}
+    .modal[hidden]{display:none}
+    .modal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;
+      padding:max(20px,env(safe-area-inset-top)) 16px max(20px,env(safe-area-inset-bottom));
+      background:rgba(35,30,20,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+      animation:cm-fade .2s ease both}
+    .cm-card{position:relative;width:100%;max-width:360px;max-height:90dvh;overflow:auto;
+      background:var(--slab);border:1px solid var(--line);border-top:3px solid var(--bronze);
+      border-radius:var(--radius);padding:32px 26px 22px;
+      box-shadow:0 40px 80px -50px rgba(60,50,30,.6),0 2px 0 rgba(255,255,255,.6) inset;
+      animation:cm-rise .22s cubic-bezier(.2,.7,.3,1) both}
+    @keyframes cm-fade{from{opacity:0}to{opacity:1}}
+    @keyframes cm-rise{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+
+    .cm-close{position:absolute;top:9px;right:9px;width:38px;height:38px;display:grid;place-items:center;
+      background:transparent;border:0;border-radius:50%;color:var(--ink-soft);cursor:pointer;
+      font-family:var(--body);font-size:24px;line-height:1;transition:color .16s ease,background .16s ease}
+    .cm-close:hover{color:var(--bronze-deep);background:#ece6d6}
+
+    .cm-head{text-align:center;margin-bottom:20px}
+    .cm-eyebrow{font-family:var(--display);font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--bronze-deep)}
+    .cm-eyebrow .gk{display:block;font-size:20px;letter-spacing:.08em;text-transform:none;color:var(--ink);margin-bottom:3px}
+    .cm-name{font-family:var(--display);font-weight:600;font-size:24px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink);margin-top:14px}
+    .cm-role{font-family:var(--display);font-size:15px;letter-spacing:.02em;color:var(--ink-soft);margin-top:3px}
+
+    /* primary action */
+    .cm-add{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+      padding:15px;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:.05em;
+      color:#f7f2e6;text-decoration:none;background:var(--bronze-deep);
+      border:1px solid var(--bronze-deep);border-radius:var(--radius);
+      transition:background .16s ease,transform .12s ease}
+    .cm-add:hover{background:#6a521f}
+    .cm-add:active{transform:scale(.99)}
+    .cm-add svg{width:18px;height:18px}
+
+    /* the symbolon — QR token, set like a minted seal */
+    .cm-token{margin:24px 0 4px;text-align:center}
+    .cm-plate{display:inline-block;position:relative;padding:15px;background:#fcfbf7;
+      border:1px solid var(--line);border-radius:var(--radius)}
+    .cm-plate::before{content:"";position:absolute;inset:7px;border:1px solid rgba(154,123,63,.42);
+      border-radius:2px;pointer-events:none}
+    .cm-qr{display:block;width:190px;height:190px;image-rendering:pixelated}
+    .cm-scan{font-family:var(--display);font-size:12px;letter-spacing:.34em;text-transform:uppercase;
+      color:var(--bronze-deep);margin-top:13px}
+
+    /* reach: phone + email with copy */
+    .cm-reach{margin-top:22px;border-top:1px solid var(--line-soft);padding-top:16px;display:grid;gap:11px}
+    .cm-row{display:flex;align-items:center;gap:11px;min-height:40px}
+    .cm-row .ic{width:18px;height:18px;flex:none;color:var(--bronze-deep)}
+    .cm-row a{flex:1;min-width:0;color:var(--ink);text-decoration:none;font-size:15.5px;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .cm-row a:hover{color:var(--bronze-deep)}
+    .cm-copy{flex:none;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.08em;
+      text-transform:uppercase;color:var(--bronze-deep);background:transparent;
+      border:1px solid var(--line);border-radius:var(--radius);padding:9px 13px;min-height:40px;cursor:pointer;
+      transition:background .16s ease,color .16s ease,border-color .16s ease}
+    .cm-copy:hover{border-color:var(--bronze);background:#fff}
+    .cm-copy.copied{color:#f7f2e6;background:var(--bronze-deep);border-color:var(--bronze-deep)}
+
+    /* tertiary: explicit file download (desktop) */
+    .cm-dl{display:block;text-align:center;margin-top:18px;font-family:var(--display);
+      font-size:14px;letter-spacing:.04em;color:var(--ink-soft);text-decoration:none}
+    .cm-dl:hover{color:var(--bronze-deep);text-decoration:underline}
+
+    .cm-add:focus-visible,.cm-copy:focus-visible,.cm-close:focus-visible,
+    .cm-row a:focus-visible,.cm-dl:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+    @media (prefers-reduced-motion:reduce){.modal,.cm-card{animation:none}}
   </style>
 </head>
 <body>
@@ -153,15 +223,15 @@
         <h1>Johnathon Southworth</h1>
         <div class="rule"></div>
         <p class="role">Senior Full-Stack Engineer &nbsp;·&nbsp; Applied AI &amp; Product</p>
-        <p class="tagline">I build entire products end to end and train the AI that runs inside them. Over {{ partial "years-since.html" 2016 }} years building software, a platform 300+ people rely on, and a multi-tenant healthcare SaaS I founded. I fine-tune and deploy my own models, not just call an API.</p>
+        <p class="tagline">I build entire products end to end and train the AI that runs inside them. Over {{ partial "years-since.html" 2016 }} years building software, a platform over 12 companies rely on, and a multi-tenant healthcare SaaS I founded. I fine-tune and deploy my own models, not just call an API.</p>
       </header>
 
-      <!-- ====  take my token: one-tap contact  ==== -->
-      <a class="save" href="/johnathon-southworth.vcf" download>
+      <!-- ====  take my token: opens the σύμβολον  ==== -->
+      <button type="button" class="save" id="open-contact" aria-haspopup="dialog" aria-controls="contact-modal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
         Save my contact
-      </a>
-      <p class="save-hint">one tap adds me to your phone</p>
+      </button>
+      <p class="save-hint">scan, save, or copy my details</p>
 
       <nav class="links">
         <a class="link" href="https://www.linkedin.com/in/johnathon-southworth/" target="_blank" rel="noopener">
@@ -226,6 +296,44 @@
       </form>
     </main>
 
+    <!-- ====  σύμβολον — the token of recognition  ==== -->
+    <div class="modal" id="contact-modal" hidden role="dialog" aria-modal="true" aria-labelledby="cm-name">
+      <div class="cm-card">
+        <button type="button" class="cm-close" id="cm-close" aria-label="Close">&times;</button>
+
+        <div class="cm-head">
+          <p class="cm-eyebrow"><span class="gk">σύμβολον</span>the token of recognition</p>
+          <p class="cm-name" id="cm-name">Johnathon Southworth</p>
+          <p class="cm-role">Senior Full-Stack Engineer</p>
+        </div>
+
+        <a class="cm-add" href="/johnathon-southworth.vcf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          Add to Contacts
+        </a>
+
+        <div class="cm-token">
+          <span class="cm-plate"><img class="cm-qr" src="/contact-qr.svg" width="190" height="190" alt="QR code that adds Johnathon Southworth to your phone's contacts"></span>
+          <p class="cm-scan">scan to save</p>
+        </div>
+
+        <div class="cm-reach">
+          <div class="cm-row">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+15412264801">(541) 226-4801</a>
+            <button type="button" class="cm-copy" data-copy="+15412264801" aria-label="Copy phone number">Copy</button>
+          </div>
+          <div class="cm-row">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <a href="mailto:southworthjohnathon@gmail.com">southworthjohnathon@gmail.com</a>
+            <button type="button" class="cm-copy" data-copy="southworthjohnathon@gmail.com" aria-label="Copy email address">Copy</button>
+          </div>
+        </div>
+
+        <a class="cm-dl" href="/johnathon-southworth.vcf" download>Download .vcf file</a>
+      </div>
+    </div>
+
     <footer><a href="/">the peripatetic</a> · a wandering mind's journey</footer>
   </div>
 
@@ -270,6 +378,68 @@
       btn.disabled = false; btn.textContent = "Send →";
     }
   });
+  </script>
+
+  <script>
+  /* σύμβολον modal: open/close, focus trap, copy-to-clipboard */
+  (function(){
+    const openBtn  = document.getElementById("open-contact");
+    const modal    = document.getElementById("contact-modal");
+    const closeBtn = document.getElementById("cm-close");
+    if (!openBtn || !modal) return;
+    let lastFocus = null;
+    const focusable = () => modal.querySelectorAll('a[href],button:not([disabled])');
+
+    function open(){
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      document.body.classList.add("modal-open");
+      (modal.querySelector(".cm-add") || closeBtn).focus();
+    }
+    function close(){
+      modal.hidden = true;
+      document.body.classList.remove("modal-open");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    openBtn.addEventListener("click", open);
+    closeBtn.addEventListener("click", close);
+    modal.addEventListener("click", e => { if (e.target === modal) close(); });
+    document.addEventListener("keydown", e => {
+      if (modal.hidden) return;
+      if (e.key === "Escape") { close(); return; }
+      if (e.key === "Tab") {
+        const f = Array.from(focusable());
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    modal.querySelectorAll(".cm-copy").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const val = btn.getAttribute("data-copy");
+        const done = () => {
+          btn.textContent = "Copied ✓"; btn.classList.add("copied");
+          setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1500);
+        };
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(val);
+          } else {
+            const ta = document.createElement("textarea");
+            ta.value = val; ta.style.position = "fixed"; ta.style.opacity = "0";
+            document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+          }
+          done();
+        } catch (_) {
+          btn.textContent = "Press to copy";
+          setTimeout(() => { btn.textContent = "Copy"; }, 1500);
+        }
+      });
+    });
+  })();
   </script>
 </body>
 </html>

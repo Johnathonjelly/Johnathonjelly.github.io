@@ -42,3 +42,10 @@ LOCAL_DEVELOPMENT.md
 
 *.env
 .env
+
+# Claude / AI assistant files (local only)
+CLAUDE.md
+.claude/
+**/CLAUDE.md
+*.claude
+.mcp.json
